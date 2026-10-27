@@ -142,6 +142,126 @@ textarea.inp{resize:vertical;min-height:84px}
 .strength{display:flex;gap:4px}.strength i{height:4px;flex:1;border-radius:3px;background:var(--line-2)}
 .demo-card{border:1px dashed var(--line-2);border-radius:var(--r);padding:14px;display:flex;gap:12px;align-items:center;justify-content:space-between;background:var(--surface-2)}
 
+/* landing */
+.lp{background:var(--bg);min-height:100%;overflow-x:clip}
+.lp-w{max-width:1160px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px))}
+.lp-nav{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.lp-nav .lp-w{display:flex;align-items:center;gap:16px;height:68px}
+.lp-nav .logo{padding:0}
+.lp-links{display:flex;gap:2px;margin-left:12px}
+.lp-links button{background:none;border:0;padding:8px 12px;border-radius:8px;color:var(--text);font-weight:500;cursor:pointer;font-size:15px}
+.lp-links button:hover{background:var(--surface-2);color:var(--ink)}
+.lp-cta{margin-left:auto;display:flex;gap:8px;align-items:center}
+.lp-sec{padding:96px 0}
+.lp-sec.alt{background:var(--surface);border-block:1px solid var(--line)}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;padding:6px 12px;border-radius:999px;background:var(--accent-tint);border:1px solid var(--accent-soft);color:var(--accent-strong);font-weight:600;font-size:13px}
+.lp h1{font-size:clamp(38px,5.2vw,62px);line-height:1.04;font-weight:700;letter-spacing:-.028em}
+.lp h1 em,.lp h2 em{font-style:normal;color:var(--accent)}
+.lp-lead{font-size:clamp(17px,1.35vw,19px);color:var(--muted);max-width:54ch;line-height:1.6;margin:0}
+.lp h2{font-size:clamp(30px,3.5vw,44px);line-height:1.1;font-weight:700;letter-spacing:-.022em}
+.lp-head{display:grid;gap:14px;justify-items:center;text-align:center;max-width:720px;margin:0 auto 52px}
+.btn.lg{padding:13px 22px;font-size:16px;border-radius:10px}
+.hero{padding:72px 0 88px}
+.hero-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:64px;align-items:center}
+.hero-copy{display:grid;gap:24px;justify-items:start}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.checks{display:flex;gap:8px 20px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+.checks span{display:inline-flex;gap:6px;align-items:center}.checks .ic{color:var(--good);width:16px;height:16px}
+.hv{position:relative;padding:20px 8px}
+.hv-main{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 40px 80px -30px rgba(80,35,10,.35),0 2px 6px rgba(60,35,15,.06);padding:18px;display:grid;gap:14px}
+.hv-bar{display:flex;align-items:center;gap:6px}.hv-bar i{width:9px;height:9px;border-radius:50%;background:var(--line-2)}
+.hv-bar b{margin-left:8px;font-family:var(--display);color:var(--ink);font-size:15px}.hv-bar .pill{margin-left:auto}
+.hv-k{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.hv-k div{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface-2);min-width:0}
+.hv-k small{display:block;color:var(--muted);font-size:11.5px}
+.hv-k b{display:block;font-family:var(--display);font-size:20px;color:var(--ink);line-height:1.2}
+.hv-k i{font-style:normal;color:var(--good);font-size:11.5px;font-weight:600}
+.hv-rows{display:grid;gap:9px}
+.hv-row{display:grid;grid-template-columns:22px 70px minmax(0,1fr) 44px;gap:10px;align-items:center;font-size:12.5px;color:var(--text)}
+.hv-row .logo-i{width:20px;height:20px}
+.hv-row>span:nth-child(2){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hv-row span:last-child{text-align:right;font-weight:600;color:var(--ink)}
+.hv-track{height:8px;border-radius:6px;background:var(--surface-2);overflow:hidden}.hv-track i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--f2),var(--f3))}
+.hv-f{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;box-shadow:0 18px 40px -16px rgba(80,35,10,.35);display:flex;gap:10px;align-items:center;font-size:13px;animation:lpfloat 6s ease-in-out infinite}
+.hv-f b{display:block;color:var(--ink);font-size:13.5px}.hv-f small{color:var(--muted);font-size:12px}
+.hv-f .bubble{width:34px;height:34px}.hv-f .bubble .ic{width:17px;height:17px}
+.hv-f.f1{top:-6px;right:-18px}.hv-f.f2{bottom:-34px;left:-26px;animation-delay:-3s}
+.hv-logos{display:flex}.hv-logos .logo-i{width:22px;height:22px;margin-left:-6px;background:var(--surface);border-radius:50%;padding:2px;box-shadow:0 0 0 1.5px var(--surface)}
+@keyframes lpfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.strip-t{text-align:center;color:var(--muted);font-size:14px;font-weight:500;margin-bottom:22px}
+.strip{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 40px;align-items:center}
+.strip span{display:inline-flex;gap:10px;align-items:center;font-family:var(--display);font-weight:600;color:var(--text);font-size:17px}
+.strip .logo-i{width:28px;height:28px}
+.swap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:28px;align-items:center}
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tool{border:1px dashed var(--line-2);border-radius:12px;padding:14px;display:grid;gap:4px;background:var(--surface-2);position:relative}
+.tool b{color:var(--ink);font-family:var(--display);font-size:15.5px;display:flex;gap:8px;align-items:center}
+.tool b .ic{color:var(--muted);width:18px;height:18px}
+.tool small{color:var(--muted);font-size:12.5px;line-height:1.4}
+.tool .x{position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;background:var(--bad-soft);color:var(--bad);display:grid;place-items:center}
+.tool .x .ic{width:12px;height:12px;stroke-width:2.6}
+.swap-arrow{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(154,79,36,.6)}
+.swap-arrow .ic{width:24px;height:24px}
+.one{background:linear-gradient(155deg,#7a3a17 0%,#a85a2a 50%,#d99360 100%);color:#fff7f0;border-radius:18px;padding:28px;display:grid;gap:18px;box-shadow:0 30px 60px -24px rgba(122,58,23,.55)}
+.one .logo-txt b{color:#fff}.one .logo-txt span{color:#ffe0cc}
+.one h3{color:#fff;font-size:24px;line-height:1.2}
+.one ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.one li{display:flex;gap:10px;align-items:flex-start;color:#fff3ea;font-size:15px}
+.one li .ic{width:18px;height:18px;flex:none;margin-top:2px;background:rgba(255,255,255,.18);border-radius:50%;padding:2px;stroke-width:2.6}
+.pains{margin-top:56px}
+.pain{display:grid;gap:10px;align-content:start}
+.pain h3{font-size:19px}.pain p{margin:0;color:var(--muted);line-height:1.55}
+.feat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.fcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;display:grid;gap:16px;align-content:start;box-shadow:var(--shadow);transition:border-color .2s,transform .2s}
+.fcard:hover{border-color:var(--accent-soft);transform:translateY(-2px)}
+.fcard .top{display:flex;gap:14px;align-items:center}
+.fcard h3{font-size:22px}.fcard .top small{display:block;color:var(--accent);font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.fcard p{margin:0;color:var(--muted);line-height:1.55}
+.fcard ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.fcard li{display:flex;gap:10px;align-items:flex-start;color:var(--text);font-size:15px}
+.fcard li .ic{width:18px;height:18px;color:var(--good);margin-top:2px;stroke-width:2.4}
+.repl{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+.repl span{background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px 10px;text-decoration:line-through;text-decoration-color:var(--bad)}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;counter-reset:how;position:relative}
+.how::before{content:"";position:absolute;top:28px;left:16%;right:16%;border-top:2px dashed var(--line-2)}
+.hstep{display:grid;gap:12px;justify-items:center;text-align:center;position:relative}
+.hstep .n{width:56px;height:56px;border-radius:50%;background:var(--surface);border:2px solid var(--accent);color:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:22px;box-shadow:0 0 0 8px var(--bg)}
+.lp-sec.alt .hstep .n{box-shadow:0 0 0 8px var(--surface)}
+.hstep h3{font-size:20px}.hstep p{margin:0;color:var(--muted);max-width:32ch;line-height:1.55}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.nums div{border-left:3px solid var(--accent);padding:4px 0 4px 18px}
+.nums b{display:block;font-family:var(--display);font-size:clamp(36px,4vw,48px);line-height:1;color:var(--ink);font-weight:700}
+.nums span{color:var(--muted);font-size:15px}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.cmp th,.cmp td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;font-size:15px}
+.cmp tr:last-child td{border-bottom:0}
+.cmp thead th{font-family:var(--display);font-size:16px;color:var(--ink);background:var(--surface-2)}
+.cmp thead th:last-child{background:var(--accent-tint);color:var(--accent-strong)}
+.cmp td:first-child{font-weight:600;color:var(--ink);width:24%}
+.cmp td:nth-child(2){color:var(--muted)}
+.cmp td:last-child{background:color-mix(in srgb,var(--accent-tint) 55%,transparent);color:var(--text)}
+.cmp td .ic{width:16px;height:16px;vertical-align:-3px;margin-right:6px}
+.cmp td:nth-child(2) .ic{color:var(--bad)}.cmp td:last-child .ic{color:var(--good)}
+.faq{max-width:780px;margin:0 auto;display:grid;gap:12px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px 20px}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:16px 0;font-family:var(--display);font-weight:600;color:var(--ink);font-size:17px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ic{transition:transform .2s;color:var(--accent)}
+.faq details[open] summary .ic{transform:rotate(45deg)}
+.faq details p{margin:0 0 18px;color:var(--muted);line-height:1.6}
+.cta-band{background:linear-gradient(135deg,#6e3314 0%,#9a4f24 45%,#d08a55 100%);border-radius:24px;padding:64px 40px;text-align:center;display:grid;gap:18px;justify-items:center;color:#fff3ea;position:relative;overflow:hidden}
+.cta-band h2{color:#fff;max-width:20ch}
+.cta-band p{margin:0;color:#ffe6d4;max-width:52ch;font-size:18px}
+.cta-band .btn{background:#fff;color:#7c3d1a}.cta-band .btn:hover{background:#fff3ea}
+.cta-band .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}.cta-band .btn.ghost:hover{background:rgba(255,255,255,.12)}
+.lp-foot{padding:48px 0 40px;border-top:1px solid var(--line);margin-top:96px}
+.lp-foot .lp-w{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+.lp-foot nav{display:flex;flex-wrap:wrap;gap:4px 18px}
+.lp-foot nav button{background:none;border:0;color:var(--muted);cursor:pointer;padding:4px 0;font-size:14px}
+.lp-foot nav button:hover{color:var(--ink)}
+.back-home{justify-self:start;display:inline-flex;gap:6px;align-items:center}
+.back-home .ic{transform:rotate(180deg)}
+
 /* app shell */
 .app{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100%}
 .side{background:var(--surface-2);border-right:1px solid var(--line);padding:18px 14px;display:flex;flex-direction:column;gap:4px;position:sticky;top:0;height:100vh;overflow-y:auto}
@@ -379,6 +499,37 @@ tr.sel td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
   .oauth{grid-template-columns:1fr}
   .kv{grid-template-columns:1fr;gap:2px}.kv dd{margin-bottom:10px}
 }
+@media (max-width:980px){
+  .lp-links{display:none}
+  .hero{padding:48px 0 72px}.hero-g{grid-template-columns:minmax(0,1fr);gap:48px}
+  .hv{max-width:560px;width:100%;justify-self:center}
+  .swap{grid-template-columns:minmax(0,1fr)}.swap-arrow{justify-self:center;transform:rotate(90deg)}
+  .feat{grid-template-columns:minmax(0,1fr)}
+  .how{grid-template-columns:minmax(0,1fr);gap:36px}.how::before{display:none}
+  .nums{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 20px}
+}
+@media (max-width:640px){
+  .lp-sec{padding:64px 0}.lp-head{margin-bottom:36px}
+  .lp-nav .lp-w{gap:8px;height:60px}.lp-nav .logo svg{width:30px;height:30px}
+  .lp-cta{gap:4px}.lp-cta .btn{padding:8px 12px;font-size:14px}
+  .hero-cta .btn{flex:1 1 auto}
+  .tools{grid-template-columns:minmax(0,1fr)}
+  .hv{padding:16px 0}.hv-f{font-size:12px;padding:8px 10px}.hv-f.f1{right:-4px;top:-10px}.hv-f.f2{left:-4px;bottom:-44px}
+  .hv-k{gap:6px}.hv-k div{padding:8px}.hv-k b{font-size:16px}
+  .hv-row{grid-template-columns:20px 62px minmax(0,1fr) 38px;gap:8px}
+  .fcard{padding:22px}
+  .cmp thead{display:none}
+  .cmp tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid var(--line)}
+  .cmp tr:last-child{border-bottom:0}
+  .cmp td{padding:12px 14px;font-size:14px;border-bottom:0;width:auto!important}
+  .cmp td:first-child{grid-column:1/-1;padding-bottom:0;background:none}
+  .cmp td:nth-child(2)::before,.cmp td:last-child::before{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+  .cmp td:nth-child(2)::before{content:"Separate tools";color:var(--muted)}
+  .cmp td:last-child::before{content:"With MoHL";color:var(--accent-strong)}
+  .cta-band{padding:44px 22px;border-radius:18px}
+  .lp-foot{margin-top:64px}
+}
+@media (max-width:380px){.lp-cta .icon-btn{display:none}}
 </style>
 </head>
 <body>
@@ -582,7 +733,7 @@ const KID_LABEL = {overview:'Overview'};
 
 /* ---------- state ---------- */
 const S = {
-  users: store.get('mohl.users', {}), user:null, auth:'login', su:{}, err:{},
+  users: store.get('mohl.users', {}), user:null, auth:'landing', su:{}, err:{},
   route:'dashboard', range:30, collapsed:{}, side:false, pop:null,
   cust:{q:'',stage:'All stages',plat:'All platforms',sel:'C-1042',page:1},
   seg:0, wfTab:'Activation', wfSel:{Activation:1,Retention:0,'Customer Value':0}, wfStep:1, wfCh:'Email',
@@ -621,6 +772,7 @@ function brandPanel(){
   </aside>`;
 }
 function authView(){
+  if(S.auth==='landing') return landingView();
   const e = S.err, su = S.su;
   let box = '';
   if(S.auth==='login'){
@@ -676,8 +828,111 @@ function authView(){
     <button class="btn block" data-act="auth" data-v="login">Back to sign in</button>`;
   }
   return `<div class="auth">${brandPanel()}<main class="auth-form"><div class="auth-box">
+    <button class="link small back-home" data-act="auth" data-v="landing">${I('arrow','s')} Back to home</button>
     <div class="row" style="gap:10px">${LOGO(34)}<div class="logo-txt"><b style="font-size:22px">MoHL</b><span>Mobile Growth, All in One</span></div></div>
     ${box}</div></main></div>`;
+}
+
+/* ---------- landing page ---------- */
+function landingView(){
+  const ck = I('check'), dark = document.documentElement.dataset.theme==='dark';
+  const sec = [['platform','Platform'],['why','Why MoHL'],['how','How it works'],['faq','FAQ']];
+  const tools = [['bars','Ad managers','A separate dashboard for every ad network'],['target','Attribution (MMP)','Install and revenue matching, billed per install'],['trend','Product analytics','Funnels and retention in yet another tool'],['users','CRM','Customer records cut off from campaign data'],['mail','Marketing automation','Push, email and SMS journeys on their own'],['sliders','A/B testing','Experiments living outside the rest']];
+  const feats = [
+    ['rocket','Campaign Building','Launch everywhere, measure what works','Build one campaign and launch it on Meta, TikTok, Snapchat, X and LinkedIn together, or run Google Ads on its own.',['Multi-platform campaign launcher','UTM and deep link builders','Attribution by platform: installs, activations, ROAS'],['Ad managers','MMP']],
+    ['bars','Analytics','See the whole funnel in one view','Follow users from install to activation, retention and revenue, and share reports with your team.',['Live KPI dashboard','Install-to-paying funnel','Saved, shareable reports'],['Product analytics','BI spreadsheets']],
+    ['users','CRM','Know every customer by name','Every customer, their source, stage and history, with segments that update by themselves.',['Customer profiles and stages','Smart segments','Unified inbox for conversations'],['CRM','Support inbox']],
+    ['growth','Growth Tools','Bring customers back automatically','Turn on ready-made journeys, test what works, and let AI agents handle routine growth tasks.',['Activation, retention and value workflows','A/B testing with clear winners','AI agents for content and automation'],['Marketing automation','A/B testing tool']]
+  ];
+  const cmp = [['Logins','One for each tool','One workspace for the whole team'],['Customer data','Copied between tools and often out of sync','One customer view, from first click to purchase'],['Reporting','Exported and stitched together in spreadsheets','Live dashboards, ready when you open them'],['Acting on insights','Export a list, import it, then build the campaign','Segment, journey and launch in a few clicks'],['Cost','Several subscriptions with overlapping features','One platform, one bill']];
+  const faq = [['Who is MoHL for?','Growth and marketing teams at companies with a mobile app, from early-stage startups to established brands, who want to acquire, activate and keep users without running five separate tools.'],
+    ['Which ad platforms can I launch on?','Google Ads, Meta, TikTok, Snapchat, X and LinkedIn. You can launch one campaign on several platforms at the same time. Google Ads campaigns run on their own.'],
+    ['Does MoHL replace my attribution tool?','Yes. Once you add the MoHL SDK to your app, installs, activations and revenue are matched to the platform and campaign that drove them.'],
+    ['How long does setup take?','You can create your workspace in a couple of minutes. Adding the SDK is a small change for your developers, and your data starts flowing as soon as it is live.'],
+    ['Can I try it before connecting my app?','Yes. Create an account and explore the platform, then connect your app whenever you are ready.']];
+  const pn = Object.fromEntries(PLATFORMS);
+  return `<div class="lp">
+  <header class="lp-nav"><div class="lp-w">
+    <button class="logo" data-act="lpgo" data-v="top" style="border:0;background:none;cursor:pointer">${LOGO(36)}<div class="logo-txt"><b style="font-size:22px">MoHL</b></div></button>
+    <nav class="lp-links" aria-label="Sections">${sec.map(s=>`<button data-act="lpgo" data-v="${s[0]}">${s[1]}</button>`).join('')}</nav>
+    <div class="lp-cta"><button class="icon-btn" data-act="theme" aria-label="Switch theme">${I(dark?'sun':'moon')}</button><button class="btn plain lp-login" data-act="auth" data-v="login">Log in</button><button class="btn" data-act="auth" data-v="signup1">Get started</button></div>
+  </div></header>
+
+  <section class="hero" id="lp-top"><div class="lp-w hero-g">
+    <div class="hero-copy">
+      <span class="eyebrow">${I('bolt','s')} The all-in-one mobile growth platform</span>
+      <h1>Your whole growth stack. <em>One platform.</em></h1>
+      <p class="lp-lead">MoHL brings campaigns, attribution, analytics, CRM and customer journeys together, so your team stops jumping between tools and starts growing the app.</p>
+      <div class="hero-cta"><button class="btn lg" data-act="auth" data-v="signup1">Get started ${I('arrow','s')}</button><button class="btn plain lg" data-act="lpgo" data-v="how">See how it works</button></div>
+      <div class="checks"><span>${ck} Launch on 6 ad platforms</span><span>${ck} One customer view</span><span>${ck} Ready-made workflows</span></div>
+    </div>
+    <div class="hv" aria-hidden="true">
+      <div class="hv-main">
+        <div class="hv-bar"><i></i><i></i><i></i><b>Dashboard</b><span class="pill p-acc">Last 30 days</span></div>
+        <div class="hv-k"><div><small>Total users</small><b>245,689</b><i>↑ 12.5%</i></div><div><small>Activation</small><b>42.7%</b><i>↑ 6.8%</i></div><div><small>ROAS</small><b>3.42×</b><i>↑ 9.1%</i></div></div>
+        <svg viewBox="0 0 400 110" style="width:100%;height:auto"><defs><linearGradient id="lpg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--f3)" stop-opacity=".45"/><stop offset="1" stop-color="var(--f3)" stop-opacity="0"/></linearGradient></defs><path d="M0 92 C40 84 70 80 110 70 S180 58 220 44 300 30 340 18 380 10 400 6 L400 110 L0 110Z" fill="url(#lpg)"/><path d="M0 92 C40 84 70 80 110 70 S180 58 220 44 300 30 340 18 380 10 400 6" fill="none" stroke="var(--f2)" stroke-width="2.6"/><path d="M0 100 C60 96 110 92 160 86 S260 74 400 60" fill="none" stroke="var(--f1)" stroke-width="2.2" stroke-dasharray="5 5" opacity=".7"/></svg>
+        <div class="hv-rows">${[['google',100,'4.0×'],['meta',86,'3.5×'],['tiktok',72,'3.0×']].map(r=>`<div class="hv-row">${BRAND[r[0]]}<span>${pn[r[0]]}</span><span class="hv-track"><i style="width:${r[1]}%"></i></span><span>${r[2]}</span></div>`).join('')}</div>
+      </div>
+      <div class="hv-f f1"><span class="hv-logos">${BRAND.meta}${BRAND.tiktok}${BRAND.snapchat}</span><div><b>Campaign launched</b><small>on 3 platforms</small></div></div>
+      <div class="hv-f f2"><span class="bubble">${I('winback')}</span><div><b>Winback journey is live</b><small>1,240 customers re-engaged</small></div></div>
+    </div>
+  </div></section>
+
+  <section style="padding:0 0 88px"><div class="lp-w">
+    <p class="strip-t">Launch and measure campaigns across</p>
+    <div class="strip">${PLATFORMS.map(([id,n])=>`<span>${BRAND[id]} ${n}</span>`).join('')}</div>
+  </div></section>
+
+  <section class="lp-sec alt" id="lp-why"><div class="lp-w">
+    <div class="lp-head"><span class="eyebrow">${I('boxes','s')} Why MoHL</span><h2>Stop paying for <em>six tools</em> that don't talk to each other</h2><p class="lp-lead">Most app teams run growth across ad managers, an attribution tool, analytics, a CRM and a marketing platform. MoHL replaces the stack with one connected workspace.</p></div>
+    <div class="swap">
+      <div class="tools">${tools.map(t=>`<div class="tool"><span class="x">${I('x')}</span><b>${I(t[0])} ${t[1]}</b><small>${t[2]}</small></div>`).join('')}</div>
+      <div class="swap-arrow">${I('arrow')}</div>
+      <div class="one">
+        <div class="row" style="gap:10px">${LOGO(40)}<div class="logo-txt"><b>MoHL</b><span>Mobile Growth, All in One</span></div></div>
+        <h3>Everything your growth team needs, connected.</h3>
+        <ul>${['One login for the whole team','One customer view from first ad click to purchase','Campaign results tied to real revenue','Insights you can act on in the same place','One platform, one bill'].map(x=>`<li>${ck}${x}</li>`).join('')}</ul>
+      </div>
+    </div>
+    <div class="grid g3 pains">${[['timer','Hours back every week','No more exporting, matching and pasting reports from different tools every Monday.'],['pulse','Decisions on real numbers','See which platform brings users who activate, stay and pay, not just installs.'],['coins','Less spent on software','Drop overlapping subscriptions and per-install attribution fees.']].map(p=>`<div class="pain"><span class="bubble">${I(p[0])}</span><h3>${p[1]}</h3><p>${p[2]}</p></div>`).join('')}</div>
+  </div></section>
+
+  <section class="lp-sec" id="lp-platform"><div class="lp-w">
+    <div class="lp-head"><span class="eyebrow">${I('grid','s')} The platform</span><h2>Four products. <em>One workspace.</em></h2><p class="lp-lead">Everything from the first ad to the hundredth purchase, built to work together from day one.</p></div>
+    <div class="feat">${feats.map(f=>`<article class="fcard"><div class="top"><span class="bubble lg" style="width:56px;height:56px">${I(f[0])}</span><div><small>${f[1]}</small><h3>${f[2]}</h3></div></div><p>${f[3]}</p><ul>${f[4].map(x=>`<li>${ck}${x}</li>`).join('')}</ul><div class="repl">Replaces ${f[5].map(x=>`<span>${x}</span>`).join('')}</div></article>`).join('')}</div>
+  </div></section>
+
+  <section class="lp-sec alt"><div class="lp-w">
+    <div class="nums">${[['6','ad platforms in one launcher'],['12','ready-made growth workflows'],['15','AI agents for growth tasks'],['1','view of every customer']].map(n=>`<div><b>${n[0]}</b><span>${n[1]}</span></div>`).join('')}</div>
+  </div></section>
+
+  <section class="lp-sec" id="lp-how"><div class="lp-w">
+    <div class="lp-head"><span class="eyebrow">${I('fork','s')} How it works</span><h2>Up and running in <em>three steps</em></h2></div>
+    <div class="how">${[['Connect your app','Create your workspace and add the MoHL SDK. Installs, events and revenue start flowing in.'],['Launch your campaigns','Build a campaign once and launch it on the platforms you choose, with tracking links set up for you.'],['Grow from one place','See what works, segment your customers and turn on journeys that bring them back.']].map((s,i)=>`<div class="hstep"><span class="n">${i+1}</span><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('')}</div>
+  </div></section>
+
+  <section class="lp-sec alt"><div class="lp-w">
+    <div class="lp-head"><h2>Before and after MoHL</h2></div>
+    <div class="tbl-wrap"><table class="cmp"><thead><tr><th></th><th>With separate tools</th><th>With MoHL</th></tr></thead><tbody>${cmp.map(r=>`<tr><td>${r[0]}</td><td>${I('x')}${r[1]}</td><td>${ck}${r[2]}</td></tr>`).join('')}</tbody></table></div>
+  </div></section>
+
+  <section class="lp-sec" id="lp-faq"><div class="lp-w">
+    <div class="lp-head"><h2>Questions, answered</h2></div>
+    <div class="faq">${faq.map((q,i)=>`<details ${i===0?'open':''}><summary>${q[0]} ${I('plus')}</summary><p>${q[1]}</p></details>`).join('')}</div>
+  </div></section>
+
+  <section><div class="lp-w"><div class="cta-band">
+    <h2>Ready to grow your app from one place?</h2>
+    <p>Create your MoHL workspace and bring campaigns, analytics and customers together today.</p>
+    <div class="hero-cta" style="justify-content:center"><button class="btn lg" data-act="auth" data-v="signup1">Get started ${I('arrow','s')}</button><button class="btn ghost lg" data-act="auth" data-v="login">Log in</button></div>
+  </div></div></section>
+
+  <footer class="lp-foot"><div class="lp-w">
+    <div class="row" style="gap:10px">${LOGO(30)}<div class="logo-txt"><b style="font-size:19px">MoHL</b><span>Mobile Growth, All in One</span></div></div>
+    <nav aria-label="Footer">${sec.map(s=>`<button data-act="lpgo" data-v="${s[0]}">${s[1]}</button>`).join('')}<button data-act="auth" data-v="login">Log in</button></nav>
+    <span class="small muted">© 2026 MoHL</span>
+  </div></footer>
+  </div>`;
 }
 
 /* ---------- shell ---------- */
@@ -1130,6 +1385,7 @@ function go(r, opts={}){
   try{ history.replaceState(null,'','#'+r); }catch(e){}
   render(); if(!opts.keepScroll) window.scrollTo(0,0);
 }
+function authHash(){ const t = {login:'login', signup1:'signup'}[S.auth]; try{ history.replaceState(null,'', t ? '#'+t : location.pathname); }catch(e){} }
 function login(user){
   S.user = user; S.err = {}; S.su = {};
   if(!user.ws) user.ws = newWorkspace(user.demo);
@@ -1137,7 +1393,7 @@ function login(user){
   const h = (location.hash||'').slice(1);
   go(ROUTES[h] && h!=='abtest' ? h : 'dashboard');
 }
-function logout(){ store.del('mohl.session'); S.user = null; S.auth = 'login'; S.pop = null; closeModal(); try{ history.replaceState(null,'',location.pathname); }catch(e){} render(); toast('Signed out','logout'); }
+function logout(){ store.del('mohl.session'); S.user = null; S.auth = 'landing'; S.pop = null; closeModal(); try{ history.replaceState(null,'',location.pathname); }catch(e){} render(); toast('Signed out','logout'); }
 
 /* live updates */
 function updUtm(){
@@ -1165,7 +1421,8 @@ document.addEventListener('click', async e => {
   const a = t.dataset.act, v = t.dataset.v;
   if(a==='closem' && t.classList.contains('scrim') && e.target !== t) return;
   switch(a){
-    case 'auth': S.auth = v; S.err = {}; render(); break;
+    case 'auth': S.auth = v; S.err = {}; authHash(); render(); window.scrollTo(0,0); break;
+    case 'lpgo': { const el = $('#lp-'+v); if(el) window.scrollTo({top: v==='top' ? 0 : el.getBoundingClientRect().top + scrollY - 76, behavior:'smooth'}); break; }
     case 'oauth': toast('Single sign-on is not connected in this prototype. Use email instead.','lock'); break;
     case 'peek': { const i = t.parentElement.querySelector('input'); i.type = i.type==='password'?'text':'password'; break; }
     case 'demo': login(S.users[DEMO_EMAIL]); toast('Opened the demo workspace'); break;
@@ -1406,6 +1663,7 @@ document.addEventListener('keydown', e => {
   const th = store.get('mohl.theme', null); if(th) document.documentElement.dataset.theme = th;
   const em = store.get('mohl.session', null);
   if(em && S.users[em]){ S.user = S.users[em]; if(!S.user.ws) S.user.ws = newWorkspace(S.user.demo); const h = (location.hash||'').slice(1); S.route = ROUTES[h] && h!=='abtest' ? h : 'dashboard'; }
+  else { const h = (location.hash||'').slice(1); S.auth = h==='login' ? 'login' : h==='signup' ? 'signup1' : 'landing'; }
   render();
 })();
 </script>
