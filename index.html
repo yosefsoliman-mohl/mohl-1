@@ -584,7 +584,7 @@ const S = {
   cust:{q:'',stage:'All stages',plat:'All platforms',sel:'C-1042',page:1},
   seg:0, wfTab:'Activation', wfSel:{Activation:1,Retention:0,'Customer Value':0}, wfStep:1, wfCh:'Email',
   jSel:0, jStep:1, conv:{f:'All',sel:'C-1042'}, ab:'cart', abq:'', abType:'All test types',
-  agq:'', agCat:'All categories', platform:'meta', creative:null, campQ:'', campStatus:'All statuses', reportSel:null
+  agq:'', agCat:'All categories', platforms:['meta'], creative:null, campQ:'', campStatus:'All statuses', reportSel:null
 };
 function seedDemo(){
   if(!S.users[DEMO_EMAIL]){
@@ -810,9 +810,10 @@ PAGES.campaigns = () => {
 };
 
 PAGES.launcher = () => {
-  const pn = Object.fromEntries(PLATFORMS), p = S.platform, img = S.creative;
+  const ps = S.platforms, pl = platNames(), img = S.creative;
   return `${head('Campaign Launcher','Create and launch your campaign in one place.',`<span class="pill p-mut">● Draft</span>`,'',`<div class="crumbs"><button data-go="campaigns">Campaign Building</button> / Campaign Launcher</div>`)}
-  <div class="grid g5" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))">${PLATFORMS.map(([id,n])=>`<button class="plat ${p===id?'on':''}" data-act="plat" data-v="${id}">${p===id?`<span class="tick">${I('check','s')}</span>`:''}${BRAND[id]}<span>${n}</span></button>`).join('')}</div>
+  <div class="grid g5" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))">${PLATFORMS.map(([id,n])=>{ const on = ps.includes(id); return `<button class="plat ${on?'on':''}" data-act="plat" data-v="${id}" aria-pressed="${on}">${on?`<span class="tick">${I('check','s')}</span>`:''}${BRAND[id]}<span>${n}</span></button>`; }).join('')}</div>
+  <p class="small muted" id="plat-hint" style="margin-top:-6px">${ps.length ? `${ps.length} platform${ps.length>1?'s':''} selected` : '<span style="color:var(--bad)">Pick at least one platform</span>'} · Meta, TikTok, Snapchat, X and LinkedIn can run together. Google Ads runs on its own.</p>
   <form class="grid split" data-form="launch" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:start" novalidate>
     <div class="stack">
       <div class="card stack"><div class="row"><span class="num-badge">1</span><h2>Campaign Details</h2></div>
@@ -841,10 +842,10 @@ PAGES.launcher = () => {
     </div>
     <div class="card stack" style="position:sticky;top:84px"><div class="row">${I('eye')}<h2>Ad Preview</h2></div>
       <div class="adprev"><div class="row"><span class="bubble sm" style="border-radius:8px">${I('image','s')}</span><div style="flex:1"><b class="strong">${esc(appName())}</b><div class="tiny muted">Sponsored</div></div>${I('dots')}</div>
-        <p class="small" id="pv-text">Your ad text will appear here. This is a preview of how your ad will look on ${pn[p]}.</p>
+        <p class="small" id="pv-text">Your ad text will appear here. This is a preview of how your ad will look on ${pl}.</p>
         <div class="adimg">${img?`<img src="${img}" alt="Uploaded creative">`:`<div>${I('image','l')}<div class="small">Your creative will appear here</div></div>`}</div>
         <div class="between"><b class="strong" id="pv-head">Your ad headline</b><span class="btn plain sm" id="pv-cta">Install Now</span></div></div>
-      <p class="tiny muted" style="text-align:center">${pn[p]} · <span id="pv-type">App Installs</span></p>
+      <p class="tiny muted" style="text-align:center">${pl} · <span id="pv-type">App Installs</span></p>
     </div>
     <div style="grid-column:1/-1;display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap"><button type="button" class="btn ghost" data-act="launch" data-v="Draft">Save Draft</button><button type="submit" class="btn">${I('rocket','s')} Launch Campaign</button></div>
   </form>`;
@@ -1192,7 +1193,7 @@ document.addEventListener('click', async e => {
     case 'jstep': { const st = JOURNEYS[S.jSel].steps[+t.dataset.i]; if(st[0]==='trig'||st[0]==='wait'){ toast('This step is preset in the template. You can edit message steps.','lock'); break; } S.jStep = +t.dataset.i; render(); break; }
     case 'usewf': { const key = t.dataset.key; W().live[key] = !W().live[key]; persist(); render(); toast(W().live[key] ? `${t.dataset.n} is live` : `${t.dataset.n} is paused`, W().live[key]?'play':'clock'); break; }
     case 'previewmsg': previewMsg(); break;
-    case 'plat': S.platform = v; keepLaunchForm(()=>render()); break;
+    case 'plat': { const ps = S.platforms; S.platforms = v==='google' ? (ps.includes('google') ? [] : ['google']) : ps.includes(v) ? ps.filter(x=>x!==v) : [...ps.filter(x=>x!=='google'), v]; keepLaunchForm(()=>render()); break; }
     case 'ctype': $('#cl-type').querySelectorAll('button').forEach(b=>b.classList.toggle('on', b===t)); $('#pv-type').textContent = v; break;
     case 'launch': submitLaunch(v); break;
     case 'togglecamp': { const c = W().campaigns[+t.dataset.i]; c.status = c.status==='Active' ? 'Paused' : 'Active'; persist(); render(); toast(`${c.name} is ${c.status.toLowerCase()}`); break; }
@@ -1228,20 +1229,26 @@ function keepLaunchForm(fn){
   if(type){ $('#cl-type').querySelectorAll('button').forEach(b=>b.classList.toggle('on', b.dataset.v===type)); $('#pv-type').textContent = type; }
   liveLaunch();
 }
+function platNames(){
+  const pn = Object.fromEntries(PLATFORMS), n = S.platforms.map(x=>pn[x]);
+  return n.length ? n.length>1 ? n.slice(0,-1).join(', ')+' and '+n.at(-1) : n[0] : 'your chosen platforms';
+}
 function liveLaunch(){
   if(!$('#pv-head')) return;
   $('#pv-head').textContent = $('#cl-head').value || 'Your ad headline';
-  $('#pv-text').textContent = $('#cl-text').value || `Your ad text will appear here. This is a preview of how your ad will look on ${Object.fromEntries(PLATFORMS)[S.platform]}.`;
+  $('#pv-text').textContent = $('#cl-text').value || `Your ad text will appear here. This is a preview of how your ad will look on ${platNames()}.`;
   $('#pv-cta').textContent = $('#cl-cta').value;
 }
 function submitLaunch(status){
   const name = $('#cl-name').value.trim() || 'Untitled campaign', link = $('#cl-link').value.trim(), amt = +$('#cl-amount').value;
   const lE = $('#cl-link-err'), aE = $('#cl-amount-err');
   lE.hidden = !!link || status==='Draft'; aE.hidden = amt>0 || status==='Draft';
+  if(!S.platforms.length){ toast('Pick at least one platform','target'); $('#plat-hint')?.scrollIntoView({block:'center',behavior:'smooth'}); return; }
   if(status!=='Draft' && (!link || !(amt>0))){ (!link?$('#cl-link'):$('#cl-amount')).focus(); return; }
-  W().campaigns.unshift({name, objective:$('#cl-type .on').dataset.v, platform:S.platform, link:'https://mohl.link/c/'+slug(name), status, users:0, ctr:0, conv:0});
+  const objective = $('#cl-type .on').dataset.v, multi = S.platforms.length > 1;
+  [...S.platforms].reverse().forEach(pf => W().campaigns.unshift({name, objective, platform:pf, link:'https://mohl.link/c/'+slug(name)+(multi?'-'+pf:''), status, users:0, ctr:0, conv:0}));
   persist(); S.creative = null; go('campaigns');
-  toast(status==='Draft' ? `${name} saved as a draft` : `${name} launched on ${Object.fromEntries(PLATFORMS)[S.platform]}`, status==='Draft'?'save':'rocket');
+  toast(status==='Draft' ? `${name} saved as a draft` : `${name} launched on ${platNames()}`, status==='Draft'?'save':'rocket');
 }
 async function copyText(s){
   try{ await navigator.clipboard.writeText(s); toast('Copied to clipboard','copy'); }
